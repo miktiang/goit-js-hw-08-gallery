@@ -51,7 +51,6 @@ function onImageClick(evt) {
     modalOpen.classList.add('is-open');
     
     // Подмена значения атрибута src элемента img.lightbox__image.
-    
     modalImage.src = evt.target.dataset.source;
     modalImage.alt = evt.target.alt;
 
@@ -59,14 +58,13 @@ function onImageClick(evt) {
 
     window.addEventListener('keydown', onRightKeyClick);
     window.addEventListener('keydown', onLeftKeyClick);
-
-    onRightKeyClick(evt);
-    onLeftKeyClick(evt);
   };
 }
 
+const originalImagesLenght = originalImagesArrow.length-1;
+
 function onRightKeyClick(evt) {
-  if (evt.keyCode === 39 && idxOfOpenedImage < originalImagesArrow.length-1) {
+  if (evt.keyCode === 39 && idxOfOpenedImage < originalImagesLenght) {
       modalImage.src = originalImagesArrow[idxOfOpenedImage += 1]
     }
   }
